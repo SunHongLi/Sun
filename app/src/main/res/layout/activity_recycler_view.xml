@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.activity.RecyclerViewActivity">
+
+    <!--android:fadeScrollbars属性控制进度条是否自动隐藏，默认为 true-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2" />
+
+    <com.hl.sun.ui.widget.HIndicator
+        android:id="@+id/hIndicator"
+        android:layout_width="50dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="30dp"
+        app:hi_indicatorColor="#ff8635" />
+
+    <com.hl.sun.ui.widget.ColorSectionProgressbar
+        android:id="@+id/pb"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="refresh"
+        android:text="刷新色块占比" />
+
+    <!--    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="80dp"
+            app:qmui_backgroundColor="@color/tomato"
+            app:qmui_radius="@dimen/dp_10" />-->
+
+    <com.hl.sun.ui.widget.RoundLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/tomato"
+            android:gravity="center"
+            android:text="11"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="100"
+            android:background="@color/yellow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="@color/tomato" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="@color/yellow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/tomato"
+            android:gravity="center"
+            android:textColor="@color/white" />
+    </com.hl.sun.ui.widget.RoundLinearLayout>
+</LinearLayout>

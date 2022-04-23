@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--站位图片-->
+    <Space
+        android:id="@+id/iv_icon_2"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp" />
+    <!--占位进度条-->
+    <Space
+        android:id="@+id/pb_2"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginRight="20dp" />
+
+    <com.qmuiteam.qmui.widget.QMUIRadiusImageView2
+        android:id="@+id/iv_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher_background"
+        app:qmui_border_color="@color/tomato"
+        app:qmui_border_width="10dp"
+        app:qmui_corner_radius="90dp"
+        app:qmui_is_circle="false" />
+
+    <ProgressBar
+        android:id="@+id/pb"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="120dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="36dp"
+        android:progress="40"
+        android:progressDrawable="@drawable/rwhomemodule_anim_progress" />
+
+</FrameLayout>
