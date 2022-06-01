@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getDatas(): List<MainRvBean> {
         var list = mutableListOf<MainRvBean>()
+        list.add(0, MainRvBean("工具类测试", UtilsActivity::class.java))
         list.add(0, MainRvBean("触摸滑动页面", TouchScrollActivity::class.java))
         list.add(0, MainRvBean("底部tab展示页面", TabActivity::class.java))
         list.add(0, MainRvBean("动画展示页面", AnimActivity::class.java))

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/snowboy"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sun">
-        <activity android:name=".ui.activity.RecyclerViewActivity"></activity>
+        <activity android:name=".ui.activity.UtilsActivity"></activity>
+        <activity android:name=".ui.activity.RecyclerViewActivity" />
         <activity android:name=".ui.activity.TabActivity" />
         <activity android:name=".ui.activity.AnimActivity" />
         <activity

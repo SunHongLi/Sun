@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sun</string>
+    <string name="decimalformat">千分位分隔显示//DecimalFormat("###,###")</string>
 </resources>
