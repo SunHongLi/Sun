@@ -2,4 +2,5 @@
     <string name="app_name">Sun</string>
     <string name="decimalformat">千分位分隔显示//DecimalFormat("###,###")</string>
     <string name="group_by_test">groupBy实现集合的分组(得到的是一个map)</string>
+    <string name="test_equals">比较两个实体类(重写equals和hashCode)</string>
 </resources>
