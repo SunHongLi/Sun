@@ -11,4 +11,10 @@
         android:layout_height="wrap_content"
         android:onClick="testDecimalForamt"
         android:text="@string/decimalformat" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testGroupBy"
+        android:text="@string/group_by_test" />
 </LinearLayout>

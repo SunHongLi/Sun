@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Sun</string>
     <string name="decimalformat">千分位分隔显示//DecimalFormat("###,###")</string>
+    <string name="group_by_test">groupBy实现集合的分组(得到的是一个map)</string>
 </resources>
