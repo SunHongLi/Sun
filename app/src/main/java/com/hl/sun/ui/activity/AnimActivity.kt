@@ -22,8 +22,21 @@ class AnimActivity : AppCompatActivity() {
         setContentView(R.layout.activity_anim)
     }
 
+    override fun onStop() {
+        super.onStop()
+        loop_avatar.stopLoop()
+    }
+
     private val valueBean by lazy {
         HomeAnimValue(iv_icon, iv_icon_2, pb, pb_2)
+    }
+
+    fun startLoop(view: View) {
+        loop_avatar.startLoop()
+    }
+
+    fun endLoop(view: View) {
+        loop_avatar.stopLoop()
     }
 
     fun startAnim3(view: View) {

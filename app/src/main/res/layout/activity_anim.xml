@@ -1,67 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include layout="@layout/rwhomemodule_progress_anim" />
 
-    <TextView
-        android:id="@+id/tv_fafa_say"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
-        android:background="@drawable/rwhomemodule_fafa_say_shadow"
-        android:paddingLeft="8dp"
-        android:paddingTop="6dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="11dp"
-        android:text="我是一个气泡"
-        android:textColor="@color/black"
-        android:textSize="12dp" />
-
-    <ImageView
-        android:id="@+id/iv_fa_2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_launcher"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/iv_fa"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_launcher_background" />
-
-    <Button
-        android:id="@+id/bt3"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bt2"
-        android:onClick="startAnim3"
-        android:text="startAnim3"
-        android:textAllCaps="false"
-        android:textSize="16dp" />
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bt1"
-        android:onClick="startAnim2"
-        android:text="startAnim2"
-        android:textAllCaps="false"
-        android:textSize="16dp" />
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:onClick="startAnim1"
+            android:text="startAnim1"
+            android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/bt1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:onClick="startAnim1"
-        android:text="startAnim1"
-        android:textAllCaps="false"
-        android:textSize="16dp" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tv_fafa_say"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rwhomemodule_fafa_say_shadow"
+            android:paddingLeft="8dp"
+            android:paddingTop="6dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="11dp"
+            android:text="我是一个气泡"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startAnim2"
+            android:text="startAnim2"
+            android:textSize="16dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--滚进来的-->
+            <ImageView
+                android:id="@+id/iv_fa_2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_launcher"
+                android:visibility="invisible" />
+            <!--滚出去的-->
+            <ImageView
+                android:id="@+id/iv_fa"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_launcher_background" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/bt3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startAnim3"
+            android:text="startAnim3"
+            android:textSize="16dp" />
+
+        <com.hl.sun.ui.widget.LoopScrollAvatar
+            android:id="@+id/loop_avatar"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            tools:background="@color/red" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="startLoop"
+                android:text="startLoop"
+                android:textSize="16dp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
+                android:onClick="endLoop"
+                android:text="endLoop"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -19,7 +19,7 @@
         android:layout_marginTop="88dp"
         android:layout_marginRight="20dp" />
 
-    <com.qmuiteam.qmui.widget.QMUIRadiusImageView2
+    <com.qmuiteam.qmui.widget.QMUIRadiusImageView
         android:id="@+id/iv_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -28,7 +28,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_launcher_background"
         app:qmui_border_color="@color/tomato"
-        app:qmui_border_width="10dp"
+        app:qmui_border_width="1dp"
         app:qmui_corner_radius="90dp"
         app:qmui_is_circle="false" />
 
