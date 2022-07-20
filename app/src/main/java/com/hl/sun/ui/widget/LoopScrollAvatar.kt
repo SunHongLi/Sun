@@ -45,9 +45,14 @@ class LoopScrollAvatar @JvmOverloads constructor(
     //下次要显示的图片角标
     private var index = 0
 
-    //头像图片资源
     private val res =
-        arrayOf(R.drawable.image_1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4)
+        arrayOf(
+            R.drawable.avatar_1,
+            R.drawable.avatar_2,
+            R.drawable.avatar_3,
+            R.drawable.avatar_4,
+            R.drawable.avatar_5
+        )
 
     //缓存复用ImageView
     private val ivCache = mutableListOf(
@@ -117,11 +122,11 @@ class LoopScrollAvatar @JvmOverloads constructor(
         //当前已在屏幕显示的控件不要复用，防止params混乱
         ivCache.remove(iv)
 
-        //图片资源全部播放完之后要从头重播
-        index = (index + 1) % res.size
-
         iv.setImageResource(res[index])
         iv.scaleType = ImageView.ScaleType.FIT_XY
+
+        //图片资源全部播放完之后要从头重播
+        index = (index + 1) % res.size
 
         //设置在RelativeLayout中的显示位置
         val lp = LayoutParams(avatarSize, avatarSize)
