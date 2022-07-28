@@ -2,6 +2,7 @@ package com.hl.sun.ui.widget
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.os.Handler
@@ -86,8 +87,10 @@ class LoopScrollAvatar @JvmOverloads constructor(
             super.handleMessage(msg)
 
             lWeak?.get()?.apply {
-                startAnimMove()
-                sendLoopMsg()
+                if ((context as? Activity)?.isDestroyed == false) {
+                    startAnimMove()
+                    sendLoopMsg()
+                }
             }
         }
     }
@@ -176,6 +179,8 @@ class LoopScrollAvatar @JvmOverloads constructor(
                         iv.animate().setListener(null)
                         iv.clearAnimation()
                         iv.translationX = 0F
+                        iv.scaleX = 1.0F
+                        iv.scaleY = 1.0F
                         iv.alpha = 1F
                         //从RelativeLayout移出
                         removeView(iv)
@@ -190,6 +195,20 @@ class LoopScrollAvatar @JvmOverloads constructor(
     }
 
     private var looping = false
+
+/*    private val res = ArrayList<String>()
+    fun setAvatar(avas: List<String>) {
+        index = 0
+        res.addAll(avas)
+        //前三位的头像先addView显示出来
+        removeAllViews()
+        //放最右
+        addImageView(ALIGN_PARENT_RIGHT)
+        //放中间
+        addImageView(CENTER_HORIZONTAL)
+        //默认放左边
+        addImageView()
+    }*/
 
     /**
      * 开始轮播
