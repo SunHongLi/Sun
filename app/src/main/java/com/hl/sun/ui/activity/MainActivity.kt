@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         list.add(0, MainRvBean("底部tab展示页面", TabActivity::class.java))
         list.add(0, MainRvBean("动画展示页面", AnimActivity::class.java))
         list.add(0, MainRvBean("横向滚动条RecyclerView", RecyclerViewActivity::class.java))
+        list.add(0, MainRvBean("H5静态资源缓存", WebCacheActivity::class.java))
 
         return list
     }
