@@ -7,6 +7,7 @@ import com.hl.sun.R
 import com.hl.sun.adapter.MainAdapter
 import com.hl.sun.bean.MainRvBean
 import com.hl.sun.ui.TouchScrollActivity
+import com.hl.weblib.core.util.FileUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

@@ -35,7 +35,7 @@ class CacheWebViewClient : WebViewClient() {
         // 步骤1:判断拦截资源的条件，即判断url里的图片资源的文件名
         // 此处网页里图片的url为:http://s.ip-cdn.com/img/logo.gif
         // 图片的资源文件名为:logo.gif
-        if (url?.contains("13073644.png") == true) {
+        if (url?.contains(".png") == true) {
             var ins: InputStream? = null
             try {
                 // 步骤2:创建一个输入流
