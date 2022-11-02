@@ -231,7 +231,7 @@ public class FileUtils {
             appCacheDir = getExternalCacheDir(context);
         }
         if (appCacheDir == null) {
-            appCacheDir = context.getFilesDir();
+            appCacheDir = context.getFilesDir();//  /data/user/0/com.hl.sun/files/offlinepackage
         }
         if (appCacheDir == null) {
             String cacheDirPath = "/data/data/" + context.getPackageName() + "/file/";

@@ -9,27 +9,29 @@ import java.util.List;
  * 资源请求键
  */
 public class ResourceKey {
-    private String host;
-    private String schema;
-    private List<String> pathList;
+//    private String host;
+//    private String schema;
+    private String path;
+//    private List<String> pathList;
 
     public ResourceKey(String url) {
         Uri uri = Uri.parse(url);
-        host = uri.getHost();
-        schema = uri.getScheme();
-        pathList = uri.getPathSegments();
+//        host = uri.getHost();
+//        schema = uri.getScheme();
+        path=uri.getPath();
+//        pathList = uri.getPathSegments();
     }
 
     @Override
     public int hashCode() {
         int result = 17;
-        result = result * 37 + hashNotNull(host);
-        result = result * 37 + hashNotNull(schema);
+        result = result * 37 + hashNotNull(path);
+       /* result = result * 37 + hashNotNull(schema);
         if (pathList != null) {
             for (String pathSeg : pathList) {
                 result = result * 37 + hashNotNull(pathSeg);
             }
-        }
+        }*/
         return result;
     }
 
@@ -43,7 +45,8 @@ public class ResourceKey {
             return false;
         }
         ResourceKey that = (ResourceKey) obj;
-        if (!TextUtils.equals(host, that.host)) {
+        return TextUtils.equals(path, that.path);
+      /*  if (!TextUtils.equals(host, that.host)) {
             return false;
         }
         if (!TextUtils.equals(schema, that.schema)) {
@@ -66,6 +69,6 @@ public class ResourceKey {
             }
         }
 
-        return isEqual;
+        return isEqual;*/
     }
 }

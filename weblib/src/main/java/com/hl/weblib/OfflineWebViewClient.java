@@ -1,6 +1,7 @@
 package com.hl.weblib;
 
 import android.annotation.TargetApi;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.webkit.WebResourceRequest;
@@ -12,9 +13,10 @@ public class OfflineWebViewClient extends WebViewClient {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-        final String url = request.getUrl().toString();
+         String url = request.getUrl().toString();
         WebResourceResponse resourceResponse = getWebResourceResponse(url);
         if (resourceResponse == null) {
+            url=url.replace("mini://main","http://122.51.132.117");
             Log.d("WebViewClient", "request from remote , " + url);
             return super.shouldInterceptRequest(view, request);
         }

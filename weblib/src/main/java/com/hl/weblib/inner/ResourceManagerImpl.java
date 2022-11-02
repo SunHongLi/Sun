@@ -70,7 +70,7 @@ public class ResourceManagerImpl implements ResourceManager {
         }*/
         //如果对应的本地文件不存在，则返回null并清除相应的key
         InputStream inputStream = FileUtils.getInputStream(resourceInfo.getLocalPath());
-        if (inputStream == null) {
+        if (inputStream == null) {///data/user/0/com.hl.sun/files/offlinepackage/main/1/work/package/mobile-web-best-practice.html
             Logger.d("getResource [" + url + "]" + " inputStream is null");
             safeRemoveResource(key);
             return null;
@@ -171,7 +171,7 @@ public class ResourceManagerImpl implements ResourceManager {
         }
         ResourceInfo resourceInfo = resourceInfoMap.get(new ResourceKey(url));
         lock.unlock();
-        if (resourceInfo != null) {
+        if (resourceInfo != null) {//  /js/app.7ffe3e39.js
             return resourceInfo.getPackageId();
         }
         return null;

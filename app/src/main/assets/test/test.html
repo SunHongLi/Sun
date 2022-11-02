@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+  $("#b01").click(function(){
+<!--  htmlobj=$.ajax({url:"/jquery/test1.txt",async:false});-->
+
+  <!--创建 XMLHttpRequest 对象-->
+  $("#log").html("开始请求");
+    var request = new XMLHttpRequest();
+    <!--实例化请求对象-->
+    request.open("GET", "https://www.wanandroid.com/article/list/1/json");
+   <!-- request.setRequestHeader('Content-type','application/json; charset=utf-8');
+    request.setRequestHeader('Access-Control-Allow-Origin','*');
+-->
+   <!-- resp.setContentType("text/json; charset=utf-8");-->
+<!--resp.setHeader("Access-Control-Allow-Origin", "*");-->
+    <!--监听 readyState 的变化-->
+    request.onreadystatechange = function() {
+        <!--检查请求是否成功-->
+        $("#log").html(this.readyState +"   "+this.status + "    " + this.responseText);
+        if(this.readyState === 4 && this.status === 200) {
+
+            $("#myDiv").html(this.responseText);
+            <!-- 将来自服务器的响应插入当前页面-->
+<!--            document.getElementById("result").innerHTML = this.responseText;-->
+        }
+    };
+    <!--将请求发送到服务器-->
+    request.send();
+
+
+  });
+});
+</script>
+</head>
+<body>
+
+<div id="myDiv"><h2>通过 AJAX 改变文本</h2></div>
+<button id="b01" type="button">通过点击改变内容</button>
+<div id="log"><h4>log</h4></div>
+
+</body>
+</html>
