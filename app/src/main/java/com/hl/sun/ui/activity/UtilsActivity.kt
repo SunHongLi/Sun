@@ -1,13 +1,24 @@
 package com.hl.sun.ui.activity
 
+import android.Manifest
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.hl.sun.R
 import com.hl.sun.bean.EqualsBean
 import com.hl.sun.bean.GroupByBean
+import java.io.Serializable
 import java.text.DecimalFormat
+import java.util.*
 
 class UtilsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,5 +113,56 @@ class UtilsActivity : AppCompatActivity() {
         Log.i("testEquals-map-1", "${map[user1]}") //map-value-1
         Log.i("testEquals-map-2", "${map[user2]}") //map-value-3  (未重写hashCode()时，此处是map-value-2)
         Log.i("testEquals-map-3", "${map[user3]}") //map-value-3
+    }
+
+    /**
+     * 原生获取定位信息
+     */
+    fun getLocation(view: View) {
+        //获取位置管理器
+        val locationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        var systemLocationListener = object : LocationListener {
+            override fun onLocationChanged(location: Location) {
+                val gc = Geocoder(this@UtilsActivity, Locale.getDefault()).getFromLocation(
+                    location.latitude,
+                    location.longitude,
+                    1
+                )
+                if (gc?.isNotEmpty() == true) {
+                    val isOverseas = !gc[0].countryName.contains("中国")
+                    val map = mapOf<String, Serializable>(
+                        Pair("address", if (isOverseas) gc[0].countryName else gc[0].adminArea),
+                        Pair("isOverseas", isOverseas)
+                    )
+                    locationSuccess(map.toString())
+                } else {
+                    locationSuccess("")
+                }
+                locationManager.removeUpdates(this)
+            }
+        }
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            Toast.makeText(this, "未开启定位权限", Toast.LENGTH_SHORT).show()
+            return
+        }
+        locationManager.requestLocationUpdates(
+            LocationManager.NETWORK_PROVIDER,
+            1000,
+            50F,
+            systemLocationListener
+        )
+    }
+
+    private fun locationSuccess(result: String) {
+        println("定位:$result")
     }
 }

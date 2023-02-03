@@ -24,4 +24,10 @@
         android:onClick="testEquals"
         android:text="@string/test_equals" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getLocation"
+        android:text="@string/get_location" />
+
 </LinearLayout>
