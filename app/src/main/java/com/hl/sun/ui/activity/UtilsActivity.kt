@@ -3,11 +3,18 @@ package com.hl.sun.ui.activity
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.DynamicDrawableSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.ImageSpan
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -16,6 +23,7 @@ import androidx.core.app.ActivityCompat
 import com.hl.sun.R
 import com.hl.sun.bean.EqualsBean
 import com.hl.sun.bean.GroupByBean
+import kotlinx.android.synthetic.main.activity_utils.*
 import java.io.Serializable
 import java.text.DecimalFormat
 import java.util.*
@@ -164,5 +172,29 @@ class UtilsActivity : AppCompatActivity() {
 
     private fun locationSuccess(result: String) {
         println("定位:$result")
+    }
+
+    fun spannableString(view: View) {
+        //ImageSpan：将文本替换为图片；
+        val s0 = ImageSpan(this, R.drawable.icon_good, DynamicDrawableSpan.ALIGN_CENTER)
+
+        val s1 = "=您已击败全国"
+
+        val s2 = SpannableString("88%")//这里不能传null，但空字符串可以
+        s2.setSpan(
+            ForegroundColorSpan(Color.parseColor("#FFFE05")),
+            0, s2.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        val s3 = "考生，请继续加油，再接再厉"
+
+        val sb = SpannableStringBuilder()
+        sb.append(s1)
+        sb.append(s2)
+        sb.append(s3)
+        sb.setSpan(s0, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        tv_span.text = sb
     }
 }

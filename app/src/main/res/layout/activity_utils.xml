@@ -30,4 +30,22 @@
         android:onClick="getLocation"
         android:text="@string/get_location" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="spannableString"
+        android:text="@string/spannable_string" />
+
+    <TextView
+        android:shadowColor="#ffe04901"
+        android:shadowDx="0"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@color/orange"
+        android:id="@+id/tv_span"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
