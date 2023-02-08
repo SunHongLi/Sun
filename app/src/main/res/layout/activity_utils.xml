@@ -37,15 +37,22 @@
         android:text="@string/spannable_string" />
 
     <TextView
+        android:id="@+id/tv_span"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
         android:shadowColor="#ffe04901"
         android:shadowDx="0"
         android:shadowDy="2"
         android:shadowRadius="3"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        android:background="@color/orange"
-        android:id="@+id/tv_span"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_date_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="simpleDateFormat"
+        android:text="SimpleDateFormat" />
 
 </LinearLayout>

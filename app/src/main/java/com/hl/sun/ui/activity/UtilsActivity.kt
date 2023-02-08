@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat
 import com.hl.sun.R
 import com.hl.sun.bean.EqualsBean
 import com.hl.sun.bean.GroupByBean
+import com.hl.sun.util.TimeUtils
 import kotlinx.android.synthetic.main.activity_utils.*
 import java.io.Serializable
 import java.text.DecimalFormat
@@ -196,5 +197,16 @@ class UtilsActivity : AppCompatActivity() {
         sb.setSpan(s0, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         tv_span.text = sb
+    }
+
+    fun simpleDateFormat(view: View) {
+        val timestamp = 1675768982000
+
+        val weekReplace = "%"
+        val formatTimeStamp =
+            TimeUtils.formatTimeStamp(timestamp, "yyyy.MM.dd(${weekReplace}) HH:mm")
+
+        btn_date_format.text =
+            formatTimeStamp?.replace(weekReplace, TimeUtils.getWeek(timestamp) ?: "").toString()
     }
 }
