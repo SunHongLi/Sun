@@ -45,6 +45,7 @@
         android:shadowDx="0"
         android:shadowDy="2"
         android:shadowRadius="3"
+        android:text="spannableString result"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
@@ -54,5 +55,11 @@
         android:layout_height="wrap_content"
         android:onClick="simpleDateFormat"
         android:text="SimpleDateFormat" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="subZeroAndDot"
+        android:text="@string/subZeroAndDot" />
 
 </LinearLayout>

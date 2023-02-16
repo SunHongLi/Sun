@@ -209,4 +209,19 @@ class UtilsActivity : AppCompatActivity() {
         btn_date_format.text =
             formatTimeStamp?.replace(weekReplace, TimeUtils.getWeek(timestamp) ?: "").toString()
     }
+
+    fun subZeroAndDot(view:View){
+        println("===================  2.00:${JavaCode.subZeroAndDot("2.00")}")
+        println("===================  12.20:${JavaCode.subZeroAndDot("12.20")}")
+        println("===================  2.400:${JavaCode.subZeroAndDot("2.400")}")
+        println("===================  2.480:${JavaCode.subZeroAndDot("2.480")}")
+        println("===================  2:${JavaCode.subZeroAndDot("2")}")
+        println("===================  20:${JavaCode.subZeroAndDot("20")}")
+        println("===================  200:${JavaCode.subZeroAndDot("200")}")
+        println("===================  200.0:${JavaCode.subZeroAndDot("200.0")}")
+        println("===================  200.0000:${JavaCode.subZeroAndDot("200.0000")}")
+        println("===================  201.0000:${JavaCode.subZeroAndDot("201.0000")}")
+        println("===================  201.010:${JavaCode.subZeroAndDot("201.010")}")
+        println("===================  201.01:${JavaCode.subZeroAndDot("201.01")}")
+    }
 }

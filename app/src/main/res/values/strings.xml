@@ -5,4 +5,5 @@
     <string name="test_equals">比较两个实体类(重写equals和hashCode)</string>
     <string name="get_location">获取定位信息（系统api）</string>
     <string name="spannable_string">SpannableString使用</string>
+    <string name="subZeroAndDot">使用java正则表达式去掉多余零，先去0再去.</string>
 </resources>
