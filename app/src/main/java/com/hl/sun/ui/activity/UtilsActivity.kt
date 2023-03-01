@@ -122,6 +122,9 @@ class UtilsActivity : AppCompatActivity() {
         LocationTest.fetchLocation()
     }
 
+    /**
+     * 另一种写法参考AutoLinkStyleTextView
+     */
     fun spannableString(view: View) {
         //ImageSpan：将文本替换为图片；
         val s0 = ImageSpan(this, R.drawable.icon_good, DynamicDrawableSpan.ALIGN_CENTER)
