@@ -1,13 +1,6 @@
 package com.hl.sun.ui.activity
 
-import android.Manifest
-import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.location.Geocoder
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
@@ -17,17 +10,15 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.ImageSpan
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.hl.sun.R
 import com.hl.sun.bean.EqualsBean
 import com.hl.sun.bean.GroupByBean
+import com.hl.sun.java.JavaCode
+import com.hl.sun.util.LocationTest
 import com.hl.sun.util.TimeUtils
 import kotlinx.android.synthetic.main.activity_utils.*
-import java.io.Serializable
 import java.text.DecimalFormat
-import java.util.*
 
 class UtilsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -128,51 +119,7 @@ class UtilsActivity : AppCompatActivity() {
      * 原生获取定位信息
      */
     fun getLocation(view: View) {
-        //获取位置管理器
-        val locationManager =
-            getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
-        var systemLocationListener = object : LocationListener {
-            override fun onLocationChanged(location: Location) {
-                val gc = Geocoder(this@UtilsActivity, Locale.getDefault()).getFromLocation(
-                    location.latitude,
-                    location.longitude,
-                    1
-                )
-                if (gc?.isNotEmpty() == true) {
-                    val isOverseas = !gc[0].countryName.contains("中国")
-                    val map = mapOf<String, Serializable>(
-                        Pair("address", if (isOverseas) gc[0].countryName else gc[0].adminArea),
-                        Pair("isOverseas", isOverseas)
-                    )
-                    locationSuccess(map.toString())
-                } else {
-                    locationSuccess("")
-                }
-                locationManager.removeUpdates(this)
-            }
-        }
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            Toast.makeText(this, "未开启定位权限", Toast.LENGTH_SHORT).show()
-            return
-        }
-        locationManager.requestLocationUpdates(
-            LocationManager.NETWORK_PROVIDER,
-            1000,
-            50F,
-            systemLocationListener
-        )
-    }
-
-    private fun locationSuccess(result: String) {
-        println("定位:$result")
+        LocationTest.fetchLocation()
     }
 
     fun spannableString(view: View) {
@@ -210,7 +157,7 @@ class UtilsActivity : AppCompatActivity() {
             formatTimeStamp?.replace(weekReplace, TimeUtils.getWeek(timestamp) ?: "").toString()
     }
 
-    fun subZeroAndDot(view:View){
+    fun subZeroAndDot(view: View) {
         println("===================  2.00:${JavaCode.subZeroAndDot("2.00")}")
         println("===================  12.20:${JavaCode.subZeroAndDot("12.20")}")
         println("===================  2.400:${JavaCode.subZeroAndDot("2.400")}")
