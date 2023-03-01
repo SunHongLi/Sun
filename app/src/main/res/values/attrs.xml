@@ -17,4 +17,11 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="DashTextView">
+        <attr name="title" format="string"/>
+        <attr name="tips" format="string"/>
+        <attr name="color" format="color"/>
+        <attr name="dash" format="boolean"/>
+    </declare-styleable>
+
 </resources>
