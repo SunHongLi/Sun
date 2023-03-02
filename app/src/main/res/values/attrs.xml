@@ -7,24 +7,18 @@
 
     <!--AutoLinkStyleTextView-->
     <declare-styleable name="AutoLinkStyleTextView">
-        <attr name="AutoLinkStyleTextView_text_value" format="string|reference"/>
-        <attr name="AutoLinkStyleTextView_default_color" format="color|reference"/>
-        <attr name="AutoLinkStyleTextView_has_under_line" format="boolean"/>
-        <attr name="AutoLinkStyleTextView_start_image" format="reference"/>
+        <attr name="AutoLinkStyleTextView_text_value" format="string|reference" />
+        <attr name="AutoLinkStyleTextView_default_color" format="color|reference" />
+        <attr name="AutoLinkStyleTextView_has_under_line" format="boolean" />
+        <attr name="AutoLinkStyleTextView_start_image" format="reference" />
         <attr name="AutoLinkStyleTextView_type">
-            <enum name="start_image" value="0"/>
-            <enum name="content_text" value="1"/>
+            <enum name="start_image" value="0" />
+            <enum name="content_text" value="1" />
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="DashTextView">
-        <attr name="title" format="string"/>
-        <attr name="tips" format="string"/>
-        <attr name="color" format="color"/>
-        <attr name="dash" format="boolean"/>
-    </declare-styleable>
 
-
+    <!--下划线注脚的TextView-->
     <declare-styleable name="UnderlinedTextView">
         <!--下划线宽度-->
         <attr name="underlineWidth" format="dimension" />

@@ -20,6 +20,7 @@ import java.util.Iterator;
 /**
  * 参考：https://github.com/lixiaote/UnderLineTextView
  * 次参考：https://github.com/zamberform/AnnotationTextAndroid
+ * https://juejin.cn/post/6844903766018244622
  * Date:2023/3/2
  * Author: sunHL
  */

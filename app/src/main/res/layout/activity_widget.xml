@@ -23,12 +23,6 @@
         app:AutoLinkStyleTextView_start_image="@drawable/avatar_1"
         app:AutoLinkStyleTextView_type="start_image" />
 
-    <com.hl.sun.ui.widget.DashTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="文字内容"
-        app:tips="弹窗内容"
-        app:title="弹窗标题" />
 
     <com.hl.sun.ui.widget.UnderLineNoteTextView
         android:id="@+id/note_tv_underline"
