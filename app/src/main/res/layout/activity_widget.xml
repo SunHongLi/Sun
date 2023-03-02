@@ -29,4 +29,11 @@
         android:text="文字内容"
         app:tips="弹窗内容"
         app:title="弹窗标题" />
+
+    <com.hl.sun.ui.widget.UnderLineNoteTextView
+        android:id="@+id/note_tv_underline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="文字-fgadsaaaa内容文字内容文字内容文字内容文字内容文字内容文字内g容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容"
+        android:textSize="14dp" />
 </LinearLayout>

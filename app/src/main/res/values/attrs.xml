@@ -24,4 +24,18 @@
         <attr name="dash" format="boolean"/>
     </declare-styleable>
 
+
+    <declare-styleable name="UnderlinedTextView">
+        <!--下划线宽度-->
+        <attr name="underlineWidth" format="dimension" />
+        <!--下划线颜色-->
+        <attr name="underlineColor" format="color" />
+        <!--注脚文字颜色-->
+        <attr name="noteTextColor" format="color" />
+        <!--注脚文字大小-->
+        <attr name="noteTextSize" format="dimension" />
+        <!--注脚距离文字距离-->
+        <attr name="noteTopMargin" format="dimension" />
+    </declare-styleable>
+
 </resources>
