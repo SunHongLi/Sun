@@ -36,6 +36,7 @@ public class UnderLineNoteTextView extends AppCompatTextView {
     private float mNoteTopMargin = 0;
     private float mUnderLineTopMargin = 0;
     private float mNoteTextSize = 20;
+    private float maxSpace;
 
     public UnderLineNoteTextView(Context context) {
         this(context, null, 0);
@@ -64,7 +65,8 @@ public class UnderLineNoteTextView extends AppCompatTextView {
         mNoteTopMargin = array.getDimension(R.styleable.UnderlinedTextView_noteTopMargin, 0);
 
         //行间距
-        setLineSpacing(Math.max(mNoteTextSize + mNoteTopMargin, mUnderLineWidth + mUnderLineTopMargin), 1F);
+        maxSpace = Math.max(mNoteTextSize + mNoteTopMargin, mUnderLineWidth + mUnderLineTopMargin);
+        setLineSpacing(maxSpace, 1F);
         setPadding(getLeft(), getTop(), getRight(), getBottom());
 
         array.recycle();
@@ -100,7 +102,7 @@ public class UnderLineNoteTextView extends AppCompatTextView {
             // mRect.bottom+=mLineTopMargin;
             //返回指定行开头的文本偏移量(就是每行首字在全部文本中排第几个字)（0&hellip；getLineCount()）。如果指定的行数等于行数，则返回文本的长度。
             firstCharInLine = layout.getLineStart(i);
-            //返回指定  行上最后一个字符后的文本偏移量。
+            //返回指定行上最后一个字符后的文本偏移量。
             lastCharInLine = layout.getLineEnd(i);
 
             Iterator<TextLineInfo> iterator = mInfos.iterator();
@@ -152,7 +154,7 @@ public class UnderLineNoteTextView extends AppCompatTextView {
 
     @Override
     public void setPadding(int left, int top, int right, int bottom) {
-        super.setPadding(left, top, right, bottom + (int) mNoteTopMargin + (int) mUnderLineWidth);
+        super.setPadding(left, top, right, Math.round(bottom + maxSpace));
     }
 
     public float getUnderlineWidth() {

@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.hl.sun.R
+import com.hl.sun.bean.SignSentence
 import com.hl.sun.ui.widget.AutoLinkStyleTextView
 import com.hl.sun.ui.widget.TextLineInfo
 import com.hl.sun.ui.widget.UnderLineNoteTextView
+import com.hl.sun.util.Utils
+import com.hl.weblib.core.util.GsonUtils
 
 /**
  * Function:自定义控件展示
@@ -20,7 +23,52 @@ class WidgetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_widget)
 
+        setAutoLinkStyleTextView()
 
+        setUnderLineNoteTextView()
+    }
+
+    private fun setUnderLineNoteTextView() {
+        val result =
+            GsonUtils.parseFromAssetJson(Utils.getApp(), "json0.json", SignSentence::class.java)
+                ?: return
+
+        val lineNoteTextView = findViewById<UnderLineNoteTextView>(R.id.note_tv_underline)
+        var infos = getSentenceInfo(result)
+        lineNoteTextView.text = contentString.toString()
+        lineNoteTextView.setUnderInfo(infos)
+    }
+
+    var currentLength = 0
+    var contentString: StringBuilder = StringBuilder()
+    private fun getSentenceInfo(result: SignSentence): ArrayList<TextLineInfo> {
+        currentLength = 0
+        val infos = arrayListOf<TextLineInfo>()
+        getSentence(infos, result)
+        return infos
+    }
+
+    private fun getSentence(infos: MutableList<TextLineInfo>, result: SignSentence) {
+        if (result.children?.isNotEmpty() == true) {
+            result.children?.forEach {
+                it?.let { getSentence(infos, it) }
+            }
+        } else {
+            result.content?.let {
+                if (result.hasScore) {
+                    infos.add(
+                        TextLineInfo(currentLength, currentLength + it.length, "${result.score}分")
+                    )
+                }
+                val length = result.content?.length ?: 0
+
+                currentLength += length
+                contentString.append(it)
+            }
+        }
+    }
+
+    private fun setAutoLinkStyleTextView() {
         autoLinkStyleTextView = findViewById(R.id.tv)
         autoLinkStyleTextView?.setOnClickCallBack { position ->
             if (position == 0) {
@@ -31,13 +79,6 @@ class WidgetActivity : AppCompatActivity() {
         }
         tvStartImage = findViewById(R.id.tv_start_image)
         tvStartImage?.setStartImageText(tvStartImage?.text)
-
-
-        val infos = arrayListOf(
-            TextLineInfo(0, 7, "0.3分"), TextLineInfo(9, 11, "0.5分"),
-            TextLineInfo(44, 46, "1.0分"), TextLineInfo(49, 50, "0.1分")
-        )
-        findViewById<UnderLineNoteTextView>(R.id.note_tv_underline).setUnderInfo(infos)
     }
 
 }

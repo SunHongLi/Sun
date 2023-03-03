@@ -9,7 +9,7 @@
         android:id="@+id/note_tv_underline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="规们要这名文字-fgadsaaaa内容文字内容文字内容文字内容文字内容文字内容文字内g容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容文字内容"
+        android:text="哈哈哈"
         android:textSize="14dp"
         app:noteTextColor="#FF9A27"
         app:noteTextSize="10dp"

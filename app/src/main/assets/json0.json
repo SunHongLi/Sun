@@ -1,0 +1,75 @@
+{
+  "content": "今天的天气很好，又到了万物复苏的季节。今天是周二，明天就是周三",
+  "children": [
+    {
+      "content": "今天的天气很好，又到了万物复苏的季节",
+      "judgeStatus": 0,
+      "keyWordId": 0,
+      "children": [
+        {
+          "content": "今天",
+          "judgeStatus": 1,
+          "children": [
+          ],
+          "score": 0.1,
+          "keyWordId": 1
+        },
+        {
+          "content": "的天气很好，又到了",
+          "judgeStatus": 0,
+          "children": [
+          ],
+          "score": 0,
+          "keyWordId": 0
+        },
+        {
+          "content": "万物复苏",
+          "judgeStatus": 1,
+          "keyWordId": 2,
+          "score": 0.2,
+          "children": [
+          ]
+        },
+        {
+          "content": "的季节",
+          "judgeStatus": 0,
+          "children": [
+          ],
+          "score": 0,
+          "keyWordId": 0
+        }
+      ]
+    },
+    {
+      "content": "今天是周二，明天就是周三",
+      "judgeStatus": 0,
+      "keyWordId": 0,
+      "children": [
+        {
+          "content": "今天是周二，",
+          "judgeStatus": 0,
+          "keyWordId": 0,
+          "score": 0,
+          "children": [
+          ]
+        },
+        {
+          "content": "明天",
+          "judgeStatus": 1,
+          "keyWordId": 3,
+          "score": 0.4,
+          "children": [
+          ]
+        },
+        {
+          "content": "就是周三",
+          "judgeStatus": 1,
+          "keyWordId": 0,
+          "score": 0.5,
+          "children": [
+          ]
+        }
+      ]
+    }
+  ]
+}
