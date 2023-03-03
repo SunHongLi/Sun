@@ -30,6 +30,8 @@
         <attr name="noteTextSize" format="dimension" />
         <!--注脚距离文字距离-->
         <attr name="noteTopMargin" format="dimension" />
+        <!--下划线距离文字距离-->
+        <attr name="underLineTopMargin" format="dimension" />
     </declare-styleable>
 
 </resources>

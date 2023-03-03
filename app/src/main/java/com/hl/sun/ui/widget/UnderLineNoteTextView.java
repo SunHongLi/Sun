@@ -34,6 +34,7 @@ public class UnderLineNoteTextView extends AppCompatTextView {
     private int mNoteTxtColor;
     private float mUnderLineWidth;
     private float mNoteTopMargin = 0;
+    private float mUnderLineTopMargin = 0;
     private float mNoteTextSize = 20;
 
     public UnderLineNoteTextView(Context context) {
@@ -52,14 +53,18 @@ public class UnderLineNoteTextView extends AppCompatTextView {
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         //获取自定义属性
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.UnderlinedTextView, defStyleAttr, 0);
+
         mUnderLineColor = array.getColor(R.styleable.UnderlinedTextView_underlineColor, 0xFFFF0000);
         mNoteTxtColor = array.getColor(R.styleable.UnderlinedTextView_noteTextColor, 0xFFFF0000);
+
         mUnderLineWidth = array.getDimension(R.styleable.UnderlinedTextView_underlineWidth, 20);
-        mNoteTopMargin = array.getDimension(R.styleable.UnderlinedTextView_noteTopMargin, 20);
+        mUnderLineTopMargin = array.getDimension(R.styleable.UnderlinedTextView_underLineTopMargin, 0);
+
         mNoteTextSize = array.getDimension(R.styleable.UnderlinedTextView_noteTextSize, 20);
+        mNoteTopMargin = array.getDimension(R.styleable.UnderlinedTextView_noteTopMargin, 0);
 
         //行间距
-        setLineSpacing(mNoteTextSize + mNoteTopMargin, 1F);
+        setLineSpacing(Math.max(mNoteTextSize + mNoteTopMargin, mUnderLineWidth + mUnderLineTopMargin), 1F);
         setPadding(getLeft(), getTop(), getRight(), getBottom());
 
         array.recycle();
@@ -117,7 +122,7 @@ public class UnderLineNoteTextView extends AppCompatTextView {
 
 
                     if (x_stop > 0) {
-                        float bottomY = baseline + mUnderLineWidth / 2 + 2;
+                        float bottomY = baseline + mUnderLineWidth / 2 + mUnderLineTopMargin + 2;
                         canvas.drawLine(x_start, bottomY, x_stop, bottomY, mPaint);
                         if (lineEnd <= lastCharInLine) {//断行的不画注脚
                             ///绘制注脚

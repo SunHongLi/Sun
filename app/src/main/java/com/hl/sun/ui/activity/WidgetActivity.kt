@@ -34,7 +34,7 @@ class WidgetActivity : AppCompatActivity() {
 
 
         val infos = arrayListOf(
-            TextLineInfo(0, 3, "0.3分"), TextLineInfo(9, 11, "0.5分"),
+            TextLineInfo(0, 7, "0.3分"), TextLineInfo(9, 11, "0.5分"),
             TextLineInfo(44, 46, "1.0分"), TextLineInfo(49, 50, "0.1分")
         )
         findViewById<UnderLineNoteTextView>(R.id.note_tv_underline).setUnderInfo(infos)
