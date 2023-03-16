@@ -43,6 +43,7 @@ class WidgetActivity : AppCompatActivity() {
     var contentString: StringBuilder = StringBuilder()
     private fun getSentenceInfo(result: SignSentence): ArrayList<TextLineInfo> {
         currentLength = 0
+        contentString.clear()
         val infos = arrayListOf<TextLineInfo>()
         getSentence(infos, result)
         return infos

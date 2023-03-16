@@ -90,9 +90,9 @@ public class UnderLineNoteTextView extends AppCompatTextView {
         int count = getLineCount();
         //得到TextView的布局
         final Layout layout = getLayout();
-        final float getRight = getRight();
+        final float getRight = getRight() - getLeft();
 
-        float x_start = 0, x_stop = 0, x_diff;
+        float x_start, x_stop;
         int firstCharInLine, lastCharInLine;
 
         //遍历每一行
@@ -167,8 +167,10 @@ public class UnderLineNoteTextView extends AppCompatTextView {
     }
 
     public void setUnderInfo(Collection<TextLineInfo> infos) {
-        mInfos.clear();
-        mInfos.addAll(infos);
-        invalidate();
+        if (infos != null) {
+            mInfos.clear();
+            mInfos.addAll(infos);
+            invalidate();
+        }
     }
 }
