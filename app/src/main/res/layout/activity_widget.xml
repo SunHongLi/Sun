@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <com.hl.sun.ui.widget.UnderLineNoteTextView
         android:id="@+id/note_tv_underline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:text="哈哈哈"
         android:textSize="14dp"
         app:noteTextColor="#FF9A27"

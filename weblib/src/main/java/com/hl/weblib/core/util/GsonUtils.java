@@ -28,6 +28,10 @@ public class GsonUtils {
         }
     }
 
+    public static String toJson(Object obj) {
+        return gson.toJson(obj);
+    }
+
     /**
      * BufferedReader(缓冲区读取内容，避免中文乱码)(因为输入的数据有可能出现中文，所以此处使用字符流完成)
      *
