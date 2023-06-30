@@ -139,15 +139,15 @@ object LocationTest {
             }
 
             override fun onProviderDisabled(provider: String) {
-                super.onProviderDisabled(provider)
+//                super.onProviderDisabled(provider)
             }
 
             override fun onProviderEnabled(provider: String) {
-                super.onProviderEnabled(provider)
+//                super.onProviderEnabled(provider)
             }
 
             override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                super.onStatusChanged(provider, status, extras)
+//                super.onStatusChanged(provider, status, extras)
             }
         }
     }
@@ -169,17 +169,19 @@ object LocationTest {
             }
 
             override fun onProviderDisabled(provider: String) {
-                super.onProviderDisabled(provider)
+//                super.onProviderDisabled(provider)
             }
 
             override fun onProviderEnabled(provider: String) {
-                super.onProviderEnabled(provider)
+//                super.onProviderEnabled(provider)
             }
 
             override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                super.onStatusChanged(provider, status, extras)
+//                super.onStatusChanged(provider, status, extras)
             }
         }
+
+//        netLocationListener?.onProviderDisabled("")
     }
 
     //Location经纬度解析 并回调结果
