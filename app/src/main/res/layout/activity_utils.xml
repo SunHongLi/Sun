@@ -1,65 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.activity.UtilsActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="testDecimalForamt"
-        android:text="@string/decimalformat" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="testGroupBy"
-        android:text="@string/group_by_test" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="testEquals"
-        android:text="@string/test_equals" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="getLocation"
-        android:text="@string/get_location" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="spannableString"
-        android:text="@string/spannable_string" />
-
-    <TextView
-        android:id="@+id/tv_span"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:shadowColor="#ffe04901"
-        android:shadowDx="0"
-        android:shadowDy="2"
-        android:shadowRadius="3"
-        android:text="spannableString result"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_date_format"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="simpleDateFormat"
-        android:text="SimpleDateFormat" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="testDecimalForamt"
+            android:text="@string/decimalformat" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="subZeroAndDot"
-        android:text="@string/subZeroAndDot" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="testGroupBy"
+            android:text="@string/group_by_test" />
 
-</LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="testEquals"
+            android:text="@string/test_equals" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getLocation"
+            android:text="@string/get_location" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="spannableString"
+            android:text="@string/spannable_string" />
+
+        <TextView
+            android:id="@+id/tv_span"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:shadowColor="#ffe04901"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:text="spannableString result"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_date_format"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="simpleDateFormat"
+            android:text="SimpleDateFormat" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="subZeroAndDot"
+            android:text="@string/sub_zero_and_dot" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="formatW"
+            android:text="@string/format_w" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

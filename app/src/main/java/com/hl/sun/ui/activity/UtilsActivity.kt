@@ -174,4 +174,30 @@ class UtilsActivity : AppCompatActivity() {
         println("===================  201.010:${JavaCode.subZeroAndDot("201.010")}")
         println("===================  201.01:${JavaCode.subZeroAndDot("201.01")}")
     }
+
+    /// >=1000000后4位缩写为w
+    fun formatW(view: View) {
+        println("formatNumber======null:${formatNumber(null)}")
+        println("formatNumber======0:${formatNumber("0")}")
+        println("formatNumber======'':${formatNumber("")}")
+        println("formatNumber======哈:${formatNumber("哈")}")
+        println("formatNumber======uu评价嘎吱fgg尴尬:${formatNumber("uu评价嘎吱fgg尴尬")}")
+        println("formatNumber======123:${formatNumber("123")}")
+        println("formatNumber====== 999998:${formatNumber("999998")}")
+        println("formatNumber====== 999999:${formatNumber("999999")}")
+        println("formatNumber======1000000:${formatNumber("1000000")}")
+        println("formatNumber======1000001:${formatNumber("1000001")}")
+        println("formatNumber======1100001:${formatNumber("1100001")}")
+        println("formatNumber======1010001:${formatNumber("1010001")}")
+        //println("formatNumber======123:${formatNumber("")}")
+        //println("formatNumber======123:${formatNumber("")}")
+    }
+
+    fun formatNumber(strNum: String?): String? {
+        val num = strNum?.toLongOrNull()
+        if (num != null && num >= 1000000) {
+            return strNum.substring(0, strNum.length - 4) + "w"
+        }
+        return strNum
+    }
 }
